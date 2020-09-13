@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
+    <script defer src="/__/firebase/7.5.2/firebase-app.js"></script>
+    <script defer src="/__/firebase/7.5.2/firebase-auth.js"></script>
+    <script defer src="/__/firebase/7.5.2/firebase-database.js"></script>
+    <script defer src="/__/firebase/7.5.2/firebase-messaging.js"></script>
+    <script defer src="/__/firebase/7.5.2/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-database.js"></script>
+</head>
+<body>
+    <section>
+        <div id="total">
+            <span>Total: </span>
+            <span id="total-num"></span>
+            <span>&#8381;</span>
+        </div>
+    </section>
+    <section>
+        <div id="decrease-increase-wrapper">
+            <div id="decrease" class="active">
+                <h2>Decrease</h2>
+                <input type="number" id="decrease-price" placeholder="Price">
+                <input type="text" id="decrease-name" placeholder="Name">
+                <button id="decrease-btn">OK</button>
+            </div>
+            <div id="increase">
+                <h2>Increase</h2>
+                <input type="number" id="increase-amount" placeholder="Amount">
+                <input type="number" id="increase-date" placeholder="Date">
+                <button id="increase-btn">OK</button>
+            </div>
+        </div>
+        <div id="bought-list-wrapper">
+            <h2>Bought it</h2>
+            <ul id="bought-list">
+                <li class="bought-list-item">
+                    <span>Thing</span>
+                    <span>100<i>&#8381;</i></span>
+                </li>
+            </ul>
+        </div>
+        <div id="shopping-list-wrapper">
+            <h2>Shopping list</h2>
+            <div id="shopping-list-s" class="shopping-list">
+                <h3>Small</h3>
+                <ul>
+                    <li>
+                        <span class="thing-name">Мыло</span>
+                        <span class="thing price">50<i>&#8381;</i></span>
+                    </li>
+                </ul>
+                <button class="add-item">+</button>
+                <div class="new-item">
+                    <input type="text">
+                    <button id="addS">Add</button>
+                </div>
+            </div>
+            <div id="shopping-list-m" class="shopping-list">
+                <h3>Medium</h3>
+                <ul>
+                    <li>
+                        <span class="thing-name">Жесткий диск</span>
+                        <span class="thing price">3300<i>&#8381;</i></span>
+                    </li>
+                </ul>
+                <button class="add-item">+</button>
+                <div class="new-item">
+                    <input type="text">
+                    <button id="addM">Add</button>
+                </div>
+            </div>
+            <div id="shopping-list-l" class="shopping-list">
+                <h3>Large</h3>
+                <ul>
+                    <li>
+                        <span class="thing-name">Морозильная камера</span>
+                        <span class="thing price">~15000<i>&#8381;</i></span>
+                    </li>
+                </ul>
+                <button class="add-item">+</button>
+                <div class="new-item">
+                    <input type="text">
+                    <button id="addL">Add</button>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
