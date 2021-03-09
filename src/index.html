@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>Общие 2</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="pwa">
+    <meta name="theme-color" content="#6c5ce7">
+    <link rel="apple-touch-icon" href="img/android-chrome-192x192.png">
+    <meta name="apple-mobile-web-app-status-bar" content="#6c5ce7">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
     <script defer src="/__/firebase/7.5.2/firebase-app.js"></script>
     <script defer src="/__/firebase/7.5.2/firebase-auth.js"></script>
@@ -13,31 +18,54 @@
     <script defer src="/__/firebase/7.5.2/firebase-storage.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-database.js"></script>
+    <link rel="manifest" href="manifest.json">
 </head>
 <body>
-    <section>
+    <header>
         <div id="total">
             <span>Total: </span>
             <span id="total-num"></span>
             <span>&#8381;</span>
         </div>
-    </section>
-    <section>
+        <nav>
+            <ul class="navbar">
+                <li class="navbar__item"><a class="navbar__link active" href="#action">Операции</a></li>
+                <li class="navbar__item"><a class="navbar__link" href="#spent">Покупки</a></li>
+                <li class="navbar__item"><a class="navbar__link" href="#refill">Пополнения</a></li>
+                <li class="navbar__item"><a class="navbar__link" href="#planning">Планирование</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="active" id="action">
         <div id="decrease-increase-wrapper">
-            <div id="decrease" class="active">
-                <h2>Decrease</h2>
-                <input type="number" id="decrease-price" placeholder="Price">
-                <input type="text" id="decrease-name" placeholder="Name">
-                <button id="decrease-btn">OK</button>
-            </div>
-            <div id="increase">
-                <h2>Increase</h2>
-                <input type="number" id="increase-amount" placeholder="Amount">
-                <input type="number" id="increase-date" placeholder="Date">
-                <button id="increase-btn">OK</button>
+            <nav class="top-nav">
+                <a class="top-nav__item active" href="#decrease">Decrease</a>
+                <a class="top-nav__item" href="#increase">Increase</a>
+            </nav>
+            <div class="form-wrapper">
+                <div id="decrease" class="form-box active">
+                    <h2>Decrease</h2>
+                    <input type="number" id="decrease-price" placeholder="Price">
+                    <input type="text" id="decrease-name" placeholder="Name">
+                    <button id="decrease-btn">OK</button>
+                </div>
+                <div id="increase" class="form-box">
+                    <h2>Increase</h2>
+                    <input type="number" id="increase-amount" placeholder="Amount">
+                    <input type="date" id="increase-date" placeholder="Date">
+                    <button id="increase-btn">OK</button>
+                </div>
             </div>
         </div>
-        <div id="bought-list-wrapper">
+    </section>
+    <section id="refill">
+        <div id="increase-list-box" class="increase-list-wrapper">
+            <h2>Increase list</h2>
+            <ul id="increase-list"></ul>
+        </div>
+    </section>
+    <section id="spent">
+        <div id="bought-list-wrapper" class="decrease-list-wrapper list-wrapper active">
             <h2>Bought it</h2>
             <ul id="bought-list">
                 <li class="bought-list-item">
@@ -46,6 +74,8 @@
                 </li>
             </ul>
         </div>
+    </section>
+    <section id="planning">
         <div id="shopping-list-wrapper">
             <h2>Shopping list</h2>
             <div id="shopping-list-s" class="shopping-list">
@@ -92,5 +122,6 @@
             </div>
         </div>
     </section>
+    <script inline inline-asset="index/bundle.js$" inline-asset-delete></script>
 </body>
 </html>

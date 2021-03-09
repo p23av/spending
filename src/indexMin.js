@@ -1,1 +1,1 @@
-import './css/indexMinstyle.css';
+// import './css/indexMinstyle.css';

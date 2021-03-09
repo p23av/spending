@@ -1,18 +1,48 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 li {
   list-style-type: none;
 }
 
-html, body {
+section {
+  display: none;
+}
+
+section.active {
+  display: block;
+}
+
+.navbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow-x: auto;
+  background-color: #fff6;
+}
+
+.navbar__item {
+  padding: 0.5rem 2rem;
+}
+
+.navbar__link {
+  color: #6c5ce7;
+}
+
+.navbar__link.active {
+  border-bottom: 1px solid #6c5ce7;
+}
+
+html,
+body {
   height: 100vh;
   width: 100vw;
   /* overflow: hidden; */
-  font-size: 14px;
+  font-size: 16px;
   font-family: "Yanone Kaffeesatz", sans-serif;
   background-color: #8c9eff;
 }
@@ -23,12 +53,19 @@ a {
 
 .top-nav {
   padding: 4px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   margin-bottom: 16px;
   border-radius: 4px;
-  box-shadow: -2px -2px 4px 1px #c0cfff, 2px 2px 4px 1px #5870cb;
+  -webkit-box-shadow: -2px -2px 4px 1px #c0cfff, 2px 2px 4px 1px #5870cb;
+          box-shadow: -2px -2px 4px 1px #c0cfff, 2px 2px 4px 1px #5870cb;
 }
 
 .top-nav__item {
@@ -41,7 +78,8 @@ a {
 }
 
 .top-nav__item.active {
-  box-shadow: inset -2px -2px 4px 0px #c0cfff, inset 2px 2px 4px 1px #5870cb;
+  -webkit-box-shadow: inset -2px -2px 4px 0px #c0cfff, inset 2px 2px 4px 1px #5870cb;
+          box-shadow: inset -2px -2px 4px 0px #c0cfff, inset 2px 2px 4px 1px #5870cb;
 }
 
 #total {
@@ -51,26 +89,43 @@ a {
   font-weight: bold;
   text-align: center;
   /* display: flex;
-  align-items: center; */
+    align-items: center; */
   font-size: 2em;
 }
 
 .list-item {
   display: flex;
   justify-content: space-between;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.list-item:nth-of-type(even) {
+  background-color: #b2bfff;
 }
 
 #decrease-increase-wrapper {
   margin: 0.5rem;
 }
 
-#decrease, #increase {
+#decrease,
+#increase {
   display: none;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   border: 1px solid #dfe6e9;
 }
 
-#decrease.active, #increase.active {
+#decrease.active,
+#increase.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
@@ -82,7 +137,8 @@ h2 {
   padding: 0.5rem;
 }
 
-#decrease > input, #increase > input {
+#decrease > input,
+#increase > input {
   border: none;
   margin: 0.5rem;
   background: none;
@@ -90,7 +146,8 @@ h2 {
   padding: 0.5rem;
 }
 
-#decrease > button, #increase > button {
+#decrease > button,
+#increase > button {
   border: none;
   background-color: #636e72;
   color: snow;
@@ -129,8 +186,12 @@ h2 {
 }
 
 .shopping-list li {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   padding: 0.5rem;
 }
 
@@ -152,6 +213,8 @@ h2 {
 }
 
 .new-item.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
@@ -167,3 +230,4 @@ h2 {
   padding: 6px 16px;
   border: none;
 }
+/*# sourceMappingURL=main.css.map */
