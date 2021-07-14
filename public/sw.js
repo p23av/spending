@@ -1,4 +1,9 @@
-const staticCacheName = 'static-cache-v0.03';
+const css = ['padding: 0.25rem 1rem;',
+'background: #263af3;',
+'font: 1rem;',
+'color: white;'].join('');
+
+const staticCacheName = 'static-cache-v0.02';
 const dynamicCacheName = 'dynamic-cache-v0';
 
 const staticAssets = [
@@ -11,22 +16,24 @@ const staticAssets = [
 self.addEventListener('install', async event => {
     const cache = await caches.open(staticCacheName);
     await cache.addAll(staticAssets);
-    console.log('Service worker has been installed');
+    console.log('%c%s', css, 'Service worker has been installed');
 });
+
 
 self.addEventListener('activate', async event => {
     const cachesKeys = await caches.keys();
-    const checkKeys = cachesKeys.map(async key => {
-        if (![staticCacheName, dynamicCacheName].includes(key)) {
-            await caches.delete(key);
-        }
-    });
-    await Promise.all(checkKeys);
-    console.log('Service worker has been activated');
+    console.log('%c%s', css, `cachesKeys: ${cachesKeys}`)
+    await Promise.all(
+        cachesKeys
+            .filter(key => ![staticCacheName, dynamicCacheName].includes(key))
+            .map(async key => caches.delete(key))
+    );
+    console.log('%c%s', css, 'Service worker has been activated');
 });
 
 self.addEventListener('fetch', event => {
-    console.log(`Trying to fetch ${event.request.url}`);
+    console.log(`Trying to fetch: ${event.request.url}`);
+    console.log('Fetch event: ', event);
     event.respondWith(checkCache(event.request));
 });
 
